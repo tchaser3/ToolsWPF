@@ -1,0 +1,84 @@
+﻿<Window x:Class="ToolsWPF.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        xmlns:local="clr-namespace:ToolsWPF"
+        mc:Ignorable="d"
+        Title="MainMenu" Height="425" Width="450">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#20232A" />
+            <Setter Property="Foreground" Value="#FFC9E0DC" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontFamily" Value="./#Segoe UI" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Path x:Name="PathIcon" Width="0" Height="0" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF635B5B" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Background" Value="#FF635B5B" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FF981E2A" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="AliceBlue" Offset="0"/>
+                <GradientStop Color="RoyalBlue" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Height="23" VerticalAlignment="Top" Background="AliceBlue" MouseLeftButtonDown="Grid_MouseLeftButtonDown"/>
+        <Image HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="140" Margin="151,28,0,0" Stretch="Fill" Source="logo.png"/>
+        <Label x:Name="lblTitle" Content="Tools - Main Menu" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Width="422"/>
+        <Button x:Name="btnClose" TabIndex="11" Content="Close" HorizontalAlignment="Left" Margin="301,348,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" Click="btnClose_Click"/>
+        <Button x:Name="btnToolSignOut" TabIndex="0" Content="Tool Sign Out" HorizontalAlignment="Left" Margin="13,140,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" Click="btnToolSignOut_Click"/>
+        <Button x:Name="btnToolSignIn" TabIndex="1" Content="Tool Sign In" HorizontalAlignment="Left" Margin="157,140,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" Click="btnToolSignIn_Click" />
+        <Button x:Name="btnToolHistory" TabIndex="2" Content="Tool History" HorizontalAlignment="Left" Margin="301,140,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" Click="btnToolHistory_Click" />
+        <Button x:Name="btnToolAvailability" TabIndex="3" HorizontalAlignment="Left" Margin="13,209,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" Click="btnToolAvailability_Click" >
+            <TextBlock x:Name="tblToolAvailability" TextWrapping="Wrap" Text="Tool  Availability" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="btnCreateToolCategory" TabIndex="4" HorizontalAlignment="Left" Margin="157,209,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" >
+            <TextBlock x:Name="tblCreateToolCategory" TextWrapping="Wrap" Text="Create Tool Category" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="btnReports" TabIndex="9" Content="Reports" HorizontalAlignment="Left" Margin="13,348,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" />
+        <Button x:Name="btnCreateTool" TabIndex="5" HorizontalAlignment="Left" Margin="301,209,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" >
+            <TextBlock x:Name="tblCreateTool" TextWrapping="Wrap" Text="Create Tool" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="btnAbout" TabIndex="10" Content="About" HorizontalAlignment="Left" Margin="157,348,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18" />
+        <Button x:Name="btnEnterToolProblem" TabIndex="6" HorizontalAlignment="Left" Margin="13,277,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18">
+            <TextBlock x:Name="tblEnterToolProblem" TextWrapping="Wrap" Text="Enter Tool Problem" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="btnVehicleToolAssignment" TabIndex="7" HorizontalAlignment="Left" Margin="157,277,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18">
+            <TextBlock x:Name="tblVehicleToolAssignment" TextWrapping="Wrap" Text="Vehicle Tool Assignment" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="btnEditTool" TabIndex="8" Content="Edit Tool" HorizontalAlignment="Left" Margin="301,277,0,0" VerticalAlignment="Top" Width="125" Height="55" FontSize="18"/>
+
+    </Grid>
+</Window>
